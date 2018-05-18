@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jdbc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/runDBCheck/jdbc/ojdbc7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/runDBCheck/jdbc/com.mysql.jdbc_5.1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/runDBCheck/jdbc/mssql-jdbc-6.2.2.jre8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
