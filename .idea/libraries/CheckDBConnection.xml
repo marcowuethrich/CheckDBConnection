@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="CheckDBConnection">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/artifacts/CheckDBConnection_jar/CheckDBConnection.jar!/" />
+      <root url="jar://$PROJECT_DIR$/runDBCheck/CheckDBConnection.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
