@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class CheckDBConnection {
 
-    private static final String mssqlQuery = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'";
+    private static final String mssqlQuery = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE";
     private static final String mysqlQuery = "show tables";
-    private static final String oracleQuery = "select table_name from all_tables'";
+    private static final String oracleQuery = "select table_name from all_tables";
 
     public static void main(String[] args) {
         String jdbcUrl = args[0];
@@ -74,11 +74,11 @@ public class CheckDBConnection {
         }
         try {
             rs = stmt.executeQuery(query);
+            System.out.println("Execute Query successful, query: "+query);
         } catch (SQLException e) {
             System.out.println("ERROR: Can not execute Query: " + query);
             e.printStackTrace();
         }
-        System.out.println("Execute Query successful, query: "+query);
         return rs;
     }
 
