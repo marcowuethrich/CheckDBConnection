@@ -1,6 +1,6 @@
 #DB Connection Checker
 
-Checked the DB Connection for multiple JDBC Driver. Show on result all table in DB.
+Checked the DB Connection for multiple JDBC Driver. Run java with some parameter (userName, JDBC-URL, password, query).
 
 You can choose between MSSQL / MYSQL / Oracle JDBC Driver
 
@@ -8,6 +8,17 @@ Example JDBC Driver:
 - MSSQL -> runDBCheck/jdbc/mssql-jdbc-6.2.2.jre8.jar
 - MYSQL -> runDBCheck/jdbc/com.mysql.jdbc_5.1.5.jar
 - Oracle -> runDBCheck/jdbc/ojdbc7.jar
+
+Java start parameter:
+
+- args[0] = JDBC Connection String
+- args[1] = Username
+- args[2] = password
+- args[3] = DB-Query // Can be emtpy, its show all readable tables from the db
+
+Example:
+
+`java -cp CheckDBConnection.jar:lib/* ch.acme.util.CheckDBConnection args[0] args[1] args[2] args[3]`
 
 ##How do check connection
 
@@ -20,7 +31,7 @@ Example JDBC Driver:
 
 ###Run
 
-1. `java -cp CheckDBConnection.jar:lib/* CheckDBConnection "{jdbcURL}" "{dbUser}" "{password}"`
+`java -cp CheckDBConnection.jar:lib/* CheckDBConnection "{jdbcURL}" "{dbUser}" "{password}" "{query|empty}"`
 
 
 ###Possible Output

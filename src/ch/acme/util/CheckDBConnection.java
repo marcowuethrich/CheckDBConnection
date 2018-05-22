@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class CheckDBConnection {
 
-    private static final String mssqlQuery = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE";
+    private static final String mssqlQuery = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'";
     private static final String mysqlQuery = "show tables";
     private static final String oracleQuery = "select table_name from all_tables";
 
@@ -12,10 +12,9 @@ public class CheckDBConnection {
         String jdbcUrl = args[0];
         String dbUser = args[1];
         String password = args[2];
+        String query = findJDBCQuery(args[3]);
 
         System.out.println("-------- JDBC Connection Testing ------");
-
-        String query = findJDBCDriverInLib();
 
         Connection connection = openConnection(jdbcUrl, dbUser, password);
 
@@ -23,27 +22,33 @@ public class CheckDBConnection {
 
     }
 
-    private static String findJDBCDriverInLib() {
+    private static String findJDBCQuery(String input) {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             System.out.println("Oracle JDBC Driver found!");
-            return oracleQuery;
+            return setQuery(input, oracleQuery);
         } catch (ClassNotFoundException ignored) {
         }
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             System.out.println("Microsoft SQL JDBC Driver found");
-            return mssqlQuery;
+            return setQuery(input, mssqlQuery);
         } catch (ClassNotFoundException ignored) {
         }
         try {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("MYSQL JDBC Driver found");
-            return mysqlQuery;
+            return setQuery(input, mysqlQuery);
         } catch (ClassNotFoundException ignored) {
         }
         System.out.println("No JDBC Driver found");
         return null;
+    }
+
+    private static String setQuery(String input, String jdbcQuery) {
+        if (input == null || input.isEmpty()){
+            return jdbcQuery;
+        }else return input;
     }
 
     private static Connection openConnection(String jdbcUrl, String dbUser, String password) {

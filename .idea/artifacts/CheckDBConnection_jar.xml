@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CheckDBConnection:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CheckDBConnection_jar</output-path>
+    <root id="archive" name="CheckDBConnection.jar">
+      <element id="module-output" name="CheckDBConnection" />
+    </root>
+  </artifact>
+</component>
