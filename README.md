@@ -18,7 +18,7 @@ Java start parameter:
 
 Example:
 
-`java -cp CheckDBConnection.jar:lib/* ch.acme.util.CheckDBConnection args[0] args[1] args[2] args[3]`
+`java -cp CheckDBConnection.jar:lib/* ch.acme.util.CheckDBConnection args[0] args[1] args[2] args[3] args[4]`
 
 ##How do check connection
 
@@ -31,14 +31,14 @@ Example:
 
 ###Run
 
-`java -cp CheckDBConnection.jar:lib/* CheckDBConnection "{jdbcURL}" "{dbUser}" "{password}" "{query|empty}"`
+`java -cp CheckDBConnection.jar:lib/* ch.acme.util.CheckDBConnection "{jdbcURL}" "{dbUser}" "{password}" "{query|empty}"`
 
 
 ###Possible Output
 
 ####Success
 
-`$ java -cp CheckDBConnection.jar:lib/* ch.acme.util.CheckDBConnection "jdbc:sqlserver://localhost:1433;database=cms" "sa_cms" "password"`
+`$ java -cp CheckDBConnection.jar:lib/* ch.acme.util.CheckDBConnection "jdbc:sqlserver://localhost:1433;database=cms" "sa_cms" "password" ""` 
 
 ` -------- JDBC Connection Testing ------`
 
